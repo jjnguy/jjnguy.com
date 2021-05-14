@@ -11,6 +11,8 @@ namespace jjnguy.com.Controllers
   public class HomeController : Controller
   {
     [HttpGet("")]
+    [HttpGet("posts")]
+    [HttpGet("posts/{postId}")]
     public IActionResult Index()
     {
       return View();
