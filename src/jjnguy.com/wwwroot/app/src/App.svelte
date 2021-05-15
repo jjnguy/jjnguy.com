@@ -46,7 +46,7 @@
 
 <main>
 	{#if $currentView.viewName == "home"}
-		<h1>THE jjnguy Blog</h1>
+		<h1>jjnguy.com | A Potpourri of Tech Content</h1>
 		{#if !posts.loading && !tags.loading && !authors.loading}
 			<ol>
 				{#each posts as post}
@@ -89,9 +89,5 @@
 <style>
 	main {
 		max-width: 240px;
-	}
-
-	h1 {
-		font-size: 2em;
 	}
 </style>
