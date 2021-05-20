@@ -11,7 +11,7 @@
 		`https://tegrity-content.azurewebsites.net/api/v1/public/computed-collections/ua5W4meHJEy2JErfo8Yhag/data`,
 		{
 			headers: {
-				"x-api-key": "fmoRmTVnCUKEjD_FY__enQ",
+				"x-api-key": "{tegrity_content_api_key}",
 			},
 		}
 	)
@@ -27,7 +27,7 @@
 		`https://tegrity-content.azurewebsites.net/api/v1/public/collections/dq1E1EbsHUSIva8ZAfCrYg/data`,
 		{
 			headers: {
-				"x-api-key": "fmoRmTVnCUKEjD_FY__enQ",
+				"x-api-key": "{tegrity_content_api_key}",
 			},
 		}
 	)
@@ -38,7 +38,7 @@
 		`https://tegrity-content.azurewebsites.net/api/v1/public/collections/_MiiHrbqKkWAp5nR3RLtHw/data`,
 		{
 			headers: {
-				"x-api-key": "fmoRmTVnCUKEjD_FY__enQ",
+				"x-api-key": "{tegrity_content_api_key}",
 			},
 		}
 	)
@@ -89,6 +89,9 @@
 </footer>
 
 <style>
+	h1 {
+		padding: 0.5rem;
+	}
 	main {
 		max-width: 240px;
 	}
