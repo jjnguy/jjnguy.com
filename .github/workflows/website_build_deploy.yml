@@ -1,0 +1,37 @@
+name: Website Build/Deploy
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: Azure/login@v1
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+      - name: NPM Install, and build
+        working-directory: ./src/jjnguy.com/wwwroot/app
+        run: |
+          npm install
+          npm run build
+      - name: Setup .NET Core
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: "5.0.x"
+      - name: Build with dotnet
+        working-directory: ./src/jjnguy.com
+        run: |
+          dotnet build --configuration Release
+          dotnet publish -c Release -o pub
+      - name: Publish To Azure
+        uses: Azure/webapps-deploy@v1
+        with:
+          app-name: tegrity-content
+          publish-profile: ${{ secrets.PUBLISH_PROFILE }}
+          package: ./src/jjnguy.com/pub
