@@ -3,6 +3,7 @@ import { registerView, setView } from './router';
 
 registerView("home", "");
 registerView("post", "posts/{postId}");
+registerView("post", "posts/{postId}/{slug}");
 
 setView(window.location.pathname);
 

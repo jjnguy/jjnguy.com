@@ -13,6 +13,7 @@ namespace jjnguy.com.Controllers
     [HttpGet("")]
     [HttpGet("posts")]
     [HttpGet("posts/{postId}")]
+    [HttpGet("posts/{postId}/{slug}")]
     public IActionResult Index()
     {
       return View();

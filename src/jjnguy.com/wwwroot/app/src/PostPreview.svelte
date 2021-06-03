@@ -3,10 +3,12 @@
   export let post;
   export let authors;
   export let tags;
+
+  let postSlug = post.data.Title.toLowerCase().replaceAll(" ", "-");
 </script>
 
 <h2>
-  <a href={`/posts/${post.id}`}>{post.data.Title}</a>
+  <a href={`/posts/${post.id}/${postSlug}`}>{post.data.Title}</a>
 </h2>
 <p class="authors">
   By -
