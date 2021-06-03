@@ -16,5 +16,6 @@
   .tag {
     border: 1px solid black;
     padding: 0.3rem;
+    margin-right: 0.2rem;
   }
 </style>
