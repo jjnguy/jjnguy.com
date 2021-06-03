@@ -5,6 +5,7 @@ import { terser } from 'rollup-plugin-terser';
 import sveltePreprocess from 'svelte-preprocess';
 import css from 'rollup-plugin-css-only';
 import replace from '@rollup/plugin-replace';
+import json from '@rollup/plugin-json';
 
 const production = !process.env.ROLLUP_WATCH;
 
@@ -23,7 +24,8 @@ export default (cli) => {
 				'{tegrity_content_api_key}': cli.configApiKey,
 				delimiters: ['', ''],
 				preventAssignment: true,
-			}), ,
+			}),
+			json(),
 			svelte({
 				preprocess: sveltePreprocess({ sourceMap: !production }),
 				compilerOptions: {

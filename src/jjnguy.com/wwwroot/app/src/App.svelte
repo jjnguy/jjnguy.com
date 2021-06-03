@@ -1,5 +1,6 @@
 <script>
 	import Post from "./Post.svelte";
+	import PostPreview from "./PostPreview.svelte";
 	import { currentView, navigate } from "./router";
 	import TagList from "./TagList.svelte";
 
@@ -49,37 +50,25 @@
 <main>
 	{#if $currentView.viewName == "home"}
 		<h1>jjnguy.com | A Potpourri of Tech Content</h1>
+		<p>This is the tech editorial column of Justin Nelson (jjnguy).</p>
 		{#if !posts.loading && !tags.loading && !authors.loading}
 			<ol>
 				{#each posts as post}
 					<li>
-						<h2>
-							<a
-								on:click={() => navigate("posts", { postId: posts.id })}
-								href={`/posts/${post.id}`}>{post.data.Title}</a
-							>
-						</h2>
-						<p class="authors">
-							By -
-							{#each post.data.Authors.map((postAuthor) => authors.filter((a) => a.id == postAuthor)[0]) as author}
-								{author.data.Name}
-							{/each}
-						</p>
-						<p class="description">{post.data.Description}</p>
-						<TagList
-							tags={post.data.Tags?.map(
-								(tId) => tags.filter((t) => t.id == tId)[0]
-							)}
-						/>
+						<PostPreview {post} {authors} {tags} />
 					</li>
 				{/each}
 			</ol>
 		{/if}
 	{:else if $currentView.viewName == "post"}
-		<Post
-			collectionId={"h7D1FLVTcUON42qBpoLIVg"}
-			postId={$currentView.metadata.postId}
-		/>
+		{#if !tags.loading && !authors.loading}
+			<Post
+				collectionId={"ua5W4meHJEy2JErfo8Yhag"}
+				postId={$currentView.metadata.postId}
+				{authors}
+				{tags}
+			/>
+		{/if}
 	{:else}
 		{$currentView.viewName}
 	{/if}
