@@ -10,7 +10,6 @@ import json from '@rollup/plugin-json';
 const production = !process.env.ROLLUP_WATCH;
 
 export default (cli) => {
-	console.log(cli);
 	return ({
 		input: 'src/main.js',
 		output: {

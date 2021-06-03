@@ -10,11 +10,10 @@
   let data = { loading: true };
   let postTags = { loading: true };
   fetch(
-    //`https://localhost:7001/api/v1/public/collections/h7D1FLVTcUON42qBpoLIVg/data`,
     `https://tegrity-content.azurewebsites.net/api/v1/public/computed-collections/${collectionId}/data/${postId}`,
     {
       headers: {
-        "x-api-key": "fmoRmTVnCUKEjD_FY__enQ",
+        "x-api-key": "{tegrity_content_api_key}",
       },
     }
   )
