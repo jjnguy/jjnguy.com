@@ -1,7 +1,5 @@
 <script>
   export let tags;
-
-  console.log(tags);
 </script>
 
 {#if tags}

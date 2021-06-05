@@ -36,7 +36,7 @@
 		.then((json) => (tags = json));
 
 	fetch(
-		`https://tegrity-content.azurewebsites.net/api/v1/public/collections/_MiiHrbqKkWAp5nR3RLtHw/data`,
+		`https://tegrity-content.azurewebsites.net/api/v1/public/computed-collections/_p06rZT000a42he_viV8zg/data`,
 		{
 			headers: {
 				"x-api-key": "{tegrity_content_api_key}",
@@ -47,9 +47,11 @@
 		.then((json) => (authors = json));
 </script>
 
+<header>
+	<h1><a href="/">jjnguy.com | A Potpourri of Tech</a></h1>
+</header>
 <main>
 	{#if $currentView.viewName == "home"}
-		<h1>jjnguy.com | A Potpourri of Tech Content</h1>
 		<p>This is the tech editorial column of Justin Nelson (jjnguy).</p>
 		{#if !posts.loading && !tags.loading && !authors.loading}
 			<ol>
@@ -82,11 +84,13 @@
 		padding: 0.5rem;
 		margin-top: 1rem;
 	}
+
+	h1 a {
+		text-decoration: unset;
+		color: unset;
+	}
 	main {
 		flex: 1;
-		max-width: 700px;
-		margin-right: auto;
-		margin-left: auto;
 	}
 
 	p {

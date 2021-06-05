@@ -34,15 +34,17 @@
 {#if data.loading}
   __loading
 {:else}
-  <h1>
-    {data.data.Title}
-  </h1>
-  <section class="authors">
-    By -
-    {#each data.data.Authors.map((postAuthor) => authors.filter((a) => a.id == postAuthor)[0]) as author}
-      {author.data.Name}
-    {/each}
-  </section>
+  <div class="title">
+    <h2>
+      {data.data.Title}
+    </h2>
+    <section class="authors">
+      By -
+      {#each data.data.Authors.map((postAuthor) => authors.filter((a) => a.id == postAuthor)[0]) as author}
+        {author.data.Name}
+      {/each}
+    </section>
+  </div>
   <section>
     <Markdown md={data.data.Content} />
   </section>
@@ -54,13 +56,17 @@
 {/if}
 
 <style>
-  h1,
+  .title {
+    text-align: center;
+  }
+
+  h2,
   section {
     margin-left: 0.5rem;
     margin-right: 0.5rem;
   }
 
-  h1 {
+  h2 {
     margin-bottom: 0.5rem;
     margin-top: 1rem;
   }
