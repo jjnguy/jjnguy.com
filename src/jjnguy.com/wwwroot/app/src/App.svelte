@@ -9,7 +9,7 @@
 	let authors = { loading: true };
 
 	fetch(
-		`https://tegrity-content.azurewebsites.net/api/v1/public/computed-collections/ua5W4meHJEy2JErfo8Yhag/data`,
+		`https://localhost:7001/api/v1/public/computed-collections/entCPS1aR0eghHfRTwU1ag/data`,
 		{
 			headers: {
 				"x-api-key": "{tegrity_content_api_key}",
@@ -25,7 +25,7 @@
 		);
 
 	fetch(
-		`https://tegrity-content.azurewebsites.net/api/v1/public/collections/dq1E1EbsHUSIva8ZAfCrYg/data`,
+		`https://localhost:7001/api/v1/public/collections/55KF1JlFBU6eDYucwLSg-w/data`,
 		{
 			headers: {
 				"x-api-key": "{tegrity_content_api_key}",
@@ -36,7 +36,7 @@
 		.then((json) => (tags = json));
 
 	fetch(
-		`https://tegrity-content.azurewebsites.net/api/v1/public/computed-collections/_p06rZT000a42he_viV8zg/data`,
+		`https://localhost:7001/api/v1/public/computed-collections/IdoZftZFy0uTEjM3HrmoAA/data`,
 		{
 			headers: {
 				"x-api-key": "{tegrity_content_api_key}",
