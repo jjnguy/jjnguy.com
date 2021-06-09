@@ -66,19 +66,21 @@
 	{:else if $currentView.viewName == "post"}
 		{#if !tags.loading && !authors.loading}
 			<Post
-				collectionId={"ua5W4meHJEy2JErfo8Yhag"}
+				collectionId={"entCPS1aR0eghHfRTwU1ag"}
 				postId={$currentView.metadata.postId}
 				{authors}
 				{tags}
 			/>
 		{/if}
 	{:else if $currentView.viewName == "tagged"}
-		<TaggedPosts
-			tagId={$currentView.metadata.tagId}
-			tagName={$currentView.metadata.tagName}
-			{authors}
-			{tags}
-		/>
+		<p>
+			<TaggedPosts
+				tagId={$currentView.metadata.tagId}
+				tagName={$currentView.metadata.tagName}
+				{authors}
+				{tags}
+			/>
+		</p>
 	{:else}
 		{$currentView.viewName}
 	{/if}
