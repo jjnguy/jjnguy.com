@@ -30,9 +30,18 @@
 
 <header>
 	<h1><a href="/">jjnguy.com | A Potpourri of Tech</a></h1>
+	<nav>
+		<button>menu</button>
+		<ul>
+			<li><a href="/">home</a></li>
+			<li><a href="/posts">blog posts</a></li>
+			<li><a href="/portfolio">portfolio</a></li>
+			<li><a href="/about">about me</a></li>
+		</ul>
+	</nav>
 </header>
 <main>
-	{#if $currentView.viewName == "home"}
+	{#if $currentView.viewName == "home" || $currentView.viewName == "posts"}
 		<p>This is the tech editorial column of Justin Nelson (jjnguy).</p>
 		{#if !posts.loading && !tags.loading && !authors.loading}
 			<ol>

@@ -8,16 +8,18 @@ using Microsoft.Extensions.Logging;
 
 namespace jjnguy.com.Controllers
 {
-    public class HomeController : Controller
+  public class HomeController : Controller
+  {
+    [HttpGet("")]
+    [HttpGet("posts")]
+    [HttpGet("about")]
+    [HttpGet("portfolio")]
+    [HttpGet("posts/{postId}")]
+    [HttpGet("posts/{postId}/{slug}")]
+    [HttpGet("posts/tagged/{tagId}/{tagName}")]
+    public IActionResult Index()
     {
-        [HttpGet("")]
-        [HttpGet("posts")]
-        [HttpGet("posts/{postId}")]
-        [HttpGet("posts/{postId}/{slug}")]
-        [HttpGet("posts/tagged/{tagId}/{tagName}")]
-        public IActionResult Index()
-        {
-            return View();
-        }
+      return View();
     }
+  }
 }
