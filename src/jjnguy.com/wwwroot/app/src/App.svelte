@@ -2,6 +2,7 @@
 	import Post from "./Post.svelte";
 	import PostPreview from "./PostPreview.svelte";
 	import { currentView, navigate } from "./router";
+	import TaggedPosts from "./TaggedPosts.svelte";
 	import TagList from "./TagList.svelte";
 
 	let posts = { loading: true };
@@ -9,7 +10,7 @@
 	let authors = { loading: true };
 
 	fetch(
-		`https://localhost:7001/api/v1/public/computed-collections/entCPS1aR0eghHfRTwU1ag/data`,
+		`https://tegrity-content.azurewebsites.net/api/v1/public/computed-collections/entCPS1aR0eghHfRTwU1ag/data`,
 		{
 			headers: {
 				"x-api-key": "{tegrity_content_api_key}",
@@ -25,7 +26,7 @@
 		);
 
 	fetch(
-		`https://localhost:7001/api/v1/public/collections/55KF1JlFBU6eDYucwLSg-w/data`,
+		`https://tegrity-content.azurewebsites.net/api/v1/public/collections/55KF1JlFBU6eDYucwLSg-w/data`,
 		{
 			headers: {
 				"x-api-key": "{tegrity_content_api_key}",
@@ -36,7 +37,7 @@
 		.then((json) => (tags = json));
 
 	fetch(
-		`https://localhost:7001/api/v1/public/computed-collections/IdoZftZFy0uTEjM3HrmoAA/data`,
+		`https://tegrity-content.azurewebsites.net/api/v1/public/computed-collections/IdoZftZFy0uTEjM3HrmoAA/data`,
 		{
 			headers: {
 				"x-api-key": "{tegrity_content_api_key}",
@@ -71,6 +72,13 @@
 				{tags}
 			/>
 		{/if}
+	{:else if $currentView.viewName == "tagged"}
+		<TaggedPosts
+			tagId={$currentView.metadata.tagId}
+			tagName={$currentView.metadata.tagName}
+			{authors}
+			{tags}
+		/>
 	{:else}
 		{$currentView.viewName}
 	{/if}

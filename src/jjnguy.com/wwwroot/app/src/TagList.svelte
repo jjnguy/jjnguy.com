@@ -1,13 +1,5 @@
 <script>
   export let tags;
-
-  tags.forEach((tag) => {
-    fetch(`https://localhost:7001/api/v1/public/referenced/data/${tag.id}`, {
-      headers: {
-        "x-api-key": "{tegrity_content_api_key}",
-      },
-    });
-  });
 </script>
 
 {#if tags}
