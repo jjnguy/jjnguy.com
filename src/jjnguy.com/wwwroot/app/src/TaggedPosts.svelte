@@ -21,7 +21,7 @@
 </script>
 
 <h2>Posts Tagged "{tagName}"</h2>
-{#if !posts.loading}
+{#if !posts.loading && !authors.loading && !tags.loading}
   <ul>
     {#each posts as post}
       <li>
