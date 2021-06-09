@@ -1,4 +1,6 @@
 <script>
+  import { getData } from "./DataAccess";
+
   import Markdown from "./Markdown.svelte";
   import TagList from "./TagList.svelte";
 
@@ -9,14 +11,7 @@
 
   let data = { loading: true };
   let postTags = { loading: true };
-  fetch(
-    `https://tegrity-content.azurewebsites.net/api/v1/public/computed-collections/${collectionId}/data/${postId}`,
-    {
-      headers: {
-        "x-api-key": "{tegrity_content_api_key}",
-      },
-    }
-  )
+  getData(`/api/v1/public/computed-collections/${collectionId}/data/${postId}`)
     .then((resp) => resp.json())
     .then((json) => {
       data = json;

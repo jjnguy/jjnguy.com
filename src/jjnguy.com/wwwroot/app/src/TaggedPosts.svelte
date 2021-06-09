@@ -1,5 +1,6 @@
 <script>
   import PostPreview from "./PostPreview.svelte";
+  import { getData } from "./DataAccess";
 
   export let tagId;
   export let tagName;
@@ -8,14 +9,7 @@
 
   let posts = { loading: true };
 
-  fetch(
-    `https://tegrity-content.azurewebsites.net/api/v1/public/referenced/data/${tagId}`,
-    {
-      headers: {
-        "x-api-key": "{tegrity_content_api_key}",
-      },
-    }
-  )
+  getData(`/api/v1/public/referenced/data/${tagId}`)
     .then((resp) => resp.json())
     .then((json) => (posts = json));
 </script>

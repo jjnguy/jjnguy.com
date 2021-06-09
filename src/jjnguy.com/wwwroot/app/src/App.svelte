@@ -1,22 +1,16 @@
 <script>
+	import { getData } from "./DataAccess";
+
 	import Post from "./Post.svelte";
 	import PostPreview from "./PostPreview.svelte";
-	import { currentView, navigate } from "./router";
+	import { currentView } from "./router";
 	import TaggedPosts from "./TaggedPosts.svelte";
-	import TagList from "./TagList.svelte";
 
 	let posts = { loading: true };
 	let tags = { loading: true };
 	let authors = { loading: true };
 
-	fetch(
-		`https://tegrity-content.azurewebsites.net/api/v1/public/computed-collections/entCPS1aR0eghHfRTwU1ag/data`,
-		{
-			headers: {
-				"x-api-key": "{tegrity_content_api_key}",
-			},
-		}
-	)
+	getData(`/api/v1/public/computed-collections/entCPS1aR0eghHfRTwU1ag/data`)
 		.then((resp) => resp.json())
 		.then(
 			(json) =>
@@ -25,25 +19,11 @@
 				}))
 		);
 
-	fetch(
-		`https://tegrity-content.azurewebsites.net/api/v1/public/collections/55KF1JlFBU6eDYucwLSg-w/data`,
-		{
-			headers: {
-				"x-api-key": "{tegrity_content_api_key}",
-			},
-		}
-	)
+	getData(`/api/v1/public/collections/55KF1JlFBU6eDYucwLSg-w/data`)
 		.then((resp) => resp.json())
 		.then((json) => (tags = json));
 
-	fetch(
-		`https://tegrity-content.azurewebsites.net/api/v1/public/computed-collections/IdoZftZFy0uTEjM3HrmoAA/data`,
-		{
-			headers: {
-				"x-api-key": "{tegrity_content_api_key}",
-			},
-		}
-	)
+	getData(`/api/v1/public/computed-collections/IdoZftZFy0uTEjM3HrmoAA/data`)
 		.then((resp) => resp.json())
 		.then((json) => (authors = json));
 </script>
