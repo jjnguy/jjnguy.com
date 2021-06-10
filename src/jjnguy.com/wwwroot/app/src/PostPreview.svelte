@@ -7,9 +7,9 @@
   let postSlug = post.data.Title.toLowerCase().replaceAll(" ", "-");
 </script>
 
-<h2>
+<h3>
   <a href={`/posts/${post.id}/${postSlug}`}>{post.data.Title}</a>
-</h2>
+</h3>
 <p class="authors">
   By -
   {#each post.data.Authors.map((postAuthor) => authors.filter((a) => a.id == postAuthor)[0]) as author}
@@ -20,3 +20,9 @@
 <TagList
   tags={post.data.Tags?.map((tId) => tags.filter((t) => t.id == tId)[0])}
 />
+
+<style>
+  h3 {
+    font-size: 1.4rem;
+  }
+</style>

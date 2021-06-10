@@ -14,10 +14,21 @@
   </div>
 {/if}
 
-<style>
+<style lang="less">
   .tag {
     border: 1px solid black;
-    padding: 0.3rem;
     margin-right: 0.2rem;
+    display: inline-block;
+
+    a {
+      display: inline-block;
+      padding: 0.3rem;
+      color: black;
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
   }
 </style>
