@@ -47,7 +47,7 @@
 <main>
 	{#if $currentView.viewName == "home" || $currentView.viewName == "posts"}
 		<p>This is the tech editorial column of Justin Nelson (jjnguy).</p>
-		<h2>Posts</h2>
+		<h2>Newest Posts</h2>
 		{#if !posts.loading && !tags.loading && !authors.loading}
 			<ol>
 				{#each posts as post}
@@ -116,6 +116,7 @@
 					right: 0.5rem;
 					background-color: white;
 					box-shadow: 1px 1px 3px -1px #000;
+					width: 6rem;
 
 					transition: opacity 150ms;
 

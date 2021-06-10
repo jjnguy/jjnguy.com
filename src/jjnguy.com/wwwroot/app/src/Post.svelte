@@ -2,6 +2,7 @@
   import { getData } from "./DataAccess";
 
   import Markdown from "./Markdown.svelte";
+  import PostInfo from "./PostInfo.svelte";
   import TagList from "./TagList.svelte";
 
   export let postId;
@@ -33,12 +34,7 @@
     <h2>
       {data.data.Title}
     </h2>
-    <section class="authors">
-      By -
-      {#each data.data.Authors.map((postAuthor) => authors.filter((a) => a.id == postAuthor)[0]) as author}
-        {author.data.Name}
-      {/each}
-    </section>
+    <PostInfo post={data} {authors} />
   </div>
   <section>
     <Markdown md={data.data.Content} />
