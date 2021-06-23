@@ -1,5 +1,6 @@
 <script>
 	import { getData } from "./DataAccess";
+	import Portfolio from "./Portfolio.svelte";
 
 	import Post from "./Post.svelte";
 	import PostPreview from "./PostPreview.svelte";
@@ -75,6 +76,8 @@
 				{tags}
 			/>
 		</p>
+	{:else if $currentView.viewName == "portfolio"}
+		<Portfolio />
 	{:else}
 		<p class="coming-soon">Coming soon!</p>
 	{/if}
