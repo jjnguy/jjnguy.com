@@ -1,24 +1,16 @@
 <script>
+	import AboutMe from "./AboutMe.svelte";
 	import { getData } from "./DataAccess";
 	import Portfolio from "./Portfolio.svelte";
 
 	import Post from "./Post.svelte";
+	import PostList from "./PostList.svelte";
 	import PostPreview from "./PostPreview.svelte";
 	import { currentView } from "./router";
 	import TaggedPosts from "./TaggedPosts.svelte";
 
-	let posts = { loading: true };
 	let tags = { loading: true };
 	let authors = { loading: true };
-
-	getData(`/api/v1/public/computed-collections/entCPS1aR0eghHfRTwU1ag/data`)
-		.then((resp) => resp.json())
-		.then(
-			(json) =>
-				(posts = json.sort((one, two) => {
-					return two.data.PublishDate.localeCompare(one.data.PublishDate);
-				}))
-		);
 
 	getData(`/api/v1/public/collections/55KF1JlFBU6eDYucwLSg-w/data`)
 		.then((resp) => resp.json())
@@ -47,17 +39,7 @@
 </header>
 <main>
 	{#if $currentView.viewName == "home" || $currentView.viewName == "posts"}
-		<p>This is the tech editorial column of Justin Nelson (jjnguy).</p>
-		<h2>Newest Posts</h2>
-		{#if !posts.loading && !tags.loading && !authors.loading}
-			<ol>
-				{#each posts as post}
-					<li>
-						<PostPreview {post} {authors} {tags} />
-					</li>
-				{/each}
-			</ol>
-		{/if}
+		<PostList {authors} {tags} />
 	{:else if $currentView.viewName == "post"}
 		{#if !tags.loading && !authors.loading}
 			<Post
@@ -78,6 +60,8 @@
 		</p>
 	{:else if $currentView.viewName == "portfolio"}
 		<Portfolio />
+	{:else if $currentView.viewName == "about"}
+		<AboutMe />
 	{:else}
 		<p class="coming-soon">Coming soon!</p>
 	{/if}
@@ -185,12 +169,6 @@
 	p {
 		margin-left: 0.5rem;
 		margin-right: 0.5rem;
-	}
-
-	ol li {
-		margin-left: 0.5rem;
-		margin-right: 0.5rem;
-		margin-bottom: 1rem;
 	}
 
 	footer {

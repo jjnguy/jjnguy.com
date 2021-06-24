@@ -4,12 +4,7 @@
   let portfolio = { loading: true };
   getData(`/api/v1/public/computed-collections/nGziMur56EuuxpMNVIGmNg/data`)
     .then((resp) => resp.json())
-    .then(
-      (json) =>
-        (portfolio = json.sort((one, two) => {
-          return two.data.PublishDate.localeCompare(one.data.Name);
-        }))
-    );
+    .then((json) => (portfolio = json));
 </script>
 
 {#if portfolio.loading}
@@ -18,7 +13,11 @@
   {#each portfolio as item}
     <h2>{item.data.Name}</h2>
     <div>
-      <img width="300" src={JSON.parse(item.data.image).url} />
+      <img
+        width="300"
+        src={JSON.parse(item.data.image.data).url}
+        alt={item.data.image.alt}
+      />
     </div>
     <div>
       {item.data.description}
