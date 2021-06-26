@@ -9,7 +9,7 @@
 </script>
 
 <h3>
-  <a href={`/posts/${post.id}/${postSlug}`}>{post.data.Title} 🡒</a>
+  <a href={`/posts/${post.id}/${postSlug}`}>{post.data.Title} &#8594;</a>
 </h3>
 <PostInfo {post} {authors} />
 <p class="description">{post.data.Description}</p>
