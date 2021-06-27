@@ -11,19 +11,28 @@
   loading...
 {:else}
   {#each portfolio as item}
-    <h2>{item.data.Name}</h2>
-    <div>
-      <img
-        width="300"
-        src={JSON.parse(item.data.image.data).url}
-        alt={item.data.image.alt}
-      />
-    </div>
-    <div>
-      {item.data.description}
-    </div>
-    <div>
-      <a href={item.data["primary link"]} target="_blank">Check it out!</a>
-    </div>
+    <section>
+      <h2>{item.data.Name}</h2>
+      <div>
+        <img
+          width="300"
+          src={JSON.parse(item.data.image.data).url}
+          alt={item.data.image.alt}
+        />
+      </div>
+      <div>
+        {item.data.description}
+      </div>
+      <div>
+        <a href={item.data["primary link"]} target="_blank">Check it out!</a>
+      </div>
+    </section>
   {/each}
 {/if}
+
+<style lang="less">
+  section {
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+  }
+</style>
