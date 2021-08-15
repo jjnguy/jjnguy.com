@@ -1,5 +1,5 @@
 
-const baseUrl = 'https://tegrity-content.azurewebsites.net';
+const baseUrl = 'https://content.tegrity.one';
 
 function getData(url) {
   return fetch(
