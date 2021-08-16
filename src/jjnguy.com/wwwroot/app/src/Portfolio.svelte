@@ -1,4 +1,5 @@
 <script>
+  import { dataset_dev } from "svelte/internal";
   import { getData } from "./DataAccess";
 
   let portfolio = { loading: true };
@@ -13,13 +14,15 @@
   {#each portfolio as item}
     <section>
       <h2>{item.data.Name}</h2>
-      <div>
-        <img
-          width="300"
-          src={JSON.parse(item.data.image.data).url}
-          alt={item.data.image.alt}
-        />
-      </div>
+      {#if item.data.image}
+        <div>
+          <img
+            width="300"
+            src={JSON.parse(item.data.image?.data ?? "{}")?.url}
+            alt={item.data.image.alt}
+          />
+        </div>
+      {/if}
       <div>
         {item.data.description}
       </div>
