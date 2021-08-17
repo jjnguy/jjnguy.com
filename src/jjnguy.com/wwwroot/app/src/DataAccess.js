@@ -1,4 +1,5 @@
 
+//const baseUrl = 'https://localhost:7001';
 const baseUrl = 'https://content.tegrity.one';
 
 function getData(url) {

@@ -12,6 +12,8 @@ namespace jjnguy.com.Controllers
   {
     [HttpGet("")]
     [HttpGet("posts")]
+    [HttpGet("authors")]
+    [HttpGet("authors/{authorId}")]
     [HttpGet("about")]
     [HttpGet("portfolio")]
     [HttpGet("posts/{postId}")]
