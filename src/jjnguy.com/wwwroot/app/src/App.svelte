@@ -16,7 +16,7 @@
     .then((resp) => resp.json())
     .then((json) => (tags = json));
 
-  getData(`/api/v1/public/computed-collections/IdoZftZFy0uTEjM3HrmoAA/data`)
+  getData(`/api/v1/public/computed-collections/npLvJaPizEaVrKCbcs0UCA/data`)
     .then((resp) => resp.json())
     .then((json) => (authors = json));
 
@@ -43,7 +43,7 @@
   {:else if $currentView.viewName == "post"}
     {#if !tags.loading && !authors.loading}
       <Post
-        collectionId={"entCPS1aR0eghHfRTwU1ag"}
+        collectionId={"k5TiOzOuwUeUTy2Q8dv2hQ"}
         postId={$currentView.metadata.postId}
         {authors}
         {tags}

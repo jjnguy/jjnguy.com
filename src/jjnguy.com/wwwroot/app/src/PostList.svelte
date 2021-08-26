@@ -6,7 +6,7 @@
   export let tags;
 
   let posts = { loading: true };
-  getData(`/api/v1/public/computed-collections/entCPS1aR0eghHfRTwU1ag/data`)
+  getData(`/api/v1/public/computed-collections/k5TiOzOuwUeUTy2Q8dv2hQ/data`)
     .then((resp) => resp.json())
     .then(
       (json) =>

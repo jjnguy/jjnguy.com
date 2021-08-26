@@ -2,7 +2,7 @@
   import { getData } from "./DataAccess";
 
   let portfolio = { loading: true };
-  getData(`/api/v1/public/computed-collections/nGziMur56EuuxpMNVIGmNg/data`)
+  getData(`/api/v1/public/computed-collections/6L0m2u1TEkSTYDBzWSbaBg/data`)
     .then((resp) => resp.json())
     .then(
       (json) =>
