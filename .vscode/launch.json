@@ -10,7 +10,7 @@
       "request": "launch",
       "preLaunchTask": "build",
       // If you have changed target frameworks, make sure to update the program path.
-      "program": "${workspaceFolder}/src/jjnguy.com/bin/Debug/net5.0/jjnguy.com.dll",
+      "program": "${workspaceFolder}/src/jjnguy.com/bin/Debug/net10.0/jjnguy.com.dll",
       "args": [],
       "cwd": "${workspaceFolder}/src/jjnguy.com",
       "stopAtEntry": false,

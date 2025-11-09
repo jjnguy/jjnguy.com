@@ -6,22 +6,21 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
-namespace jjnguy.com.Controllers
+namespace jjnguy.com.Controllers;
+
+public class HomeController(IHostEnvironment env) : Controller
 {
-  public class HomeController : Controller
+  [HttpGet("")]
+  [HttpGet("posts")]
+  [HttpGet("authors")]
+  [HttpGet("authors/{authorId}")]
+  [HttpGet("about")]
+  [HttpGet("portfolio")]
+  [HttpGet("posts/{postId}")]
+  [HttpGet("posts/{postId}/{slug}")]
+  [HttpGet("posts/tagged/{tagId}/{tagName}")]
+  public IActionResult Index()
   {
-    [HttpGet("")]
-    [HttpGet("posts")]
-    [HttpGet("authors")]
-    [HttpGet("authors/{authorId}")]
-    [HttpGet("about")]
-    [HttpGet("portfolio")]
-    [HttpGet("posts/{postId}")]
-    [HttpGet("posts/{postId}/{slug}")]
-    [HttpGet("posts/tagged/{tagId}/{tagName}")]
-    public IActionResult Index()
-    {
-      return View();
-    }
+    return base.PhysicalFile(Path.Combine(env.ContentRootPath, "wwwroot/index.html"), "text/html");
   }
 }

@@ -12,34 +12,30 @@
   let tags = { loading: true };
   let authors = { loading: true };
 
-  getData(`/api/v1/public/collections/55KF1JlFBU6eDYucwLSg-w/data`)
-    .then((resp) => resp.json())
-    .then((json) => (tags = json));
-
-  getData(`/api/v1/public/computed-collections/npLvJaPizEaVrKCbcs0UCA/data`)
-    .then((resp) => resp.json())
-    .then((json) => (authors = json));
-
   let showMenu = false;
 </script>
 
 <header>
-  <h1><a href="/">jjnguy.com | A Potpourri of Tech</a></h1>
-  <nav class:active={showMenu}>
-    <label>menu <input type="checkbox" bind:checked={showMenu} /></label>
-    <div class="menu-container">
-      <ul>
-        <li><a href="/">home</a></li>
-        <li><a href="/posts">blog posts</a></li>
-        <li><a href="/portfolio">portfolio</a></li>
-        <li><a href="/about">about me</a></li>
-      </ul>
-    </div>
-  </nav>
+  <h1><a href="/">Justin Nelson | A Potpourri of Tech</a></h1>
 </header>
 <main>
   {#if $currentView.viewName == "home" || $currentView.viewName == "posts"}
-    <PostList {authors} {tags} />
+    <!--<PostList {authors} {tags} />-->
+    <p>
+      This is a placeholder portfolio and tech blog for when Justin has more
+      motivation.
+    </p>
+    <p>
+      In the meantime, check out my
+      <a target="_blank" href="https://github.com/jjnguy">GitHub account</a>,
+      <a target="_blank" href="https://www.linkedin.com/in/jjnguy"
+        >LinkedIn profile</a
+      >
+      or abandoned
+      <a target="_blank" href="https://www.youtube.com/@beer-code"
+        >YouTube channel</a
+      >.
+    </p>
   {:else if $currentView.viewName == "post"}
     {#if !tags.loading && !authors.loading}
       <Post
@@ -86,7 +82,9 @@
         margin-right: 0.5rem;
         cursor: pointer;
 
-        transition: background-color 150ms, color 150ms;
+        transition:
+          background-color 150ms,
+          color 150ms;
       }
 
       input {
