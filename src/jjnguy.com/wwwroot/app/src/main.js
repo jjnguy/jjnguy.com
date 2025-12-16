@@ -2,6 +2,8 @@ import App from './App.svelte';
 import { registerView, setView } from './router';
 
 registerView("home", "");
+registerView("word-find", "word-find");
+registerView("webcam", "webcam");
 registerView("about", "about");
 registerView("posts", "posts");
 registerView("authors", "authors");

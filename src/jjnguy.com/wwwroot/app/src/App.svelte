@@ -8,6 +8,8 @@
   import PostList from "./PostList.svelte";
   import { currentView } from "./router";
   import TaggedPosts from "./TaggedPosts.svelte";
+  import Webcam from "./Webcam.svelte";
+  import WordFind from "./WordFind.svelte";
 
   let tags = { loading: true };
   let authors = { loading: true };
@@ -60,6 +62,10 @@
     <AboutMe />
   {:else if $currentView.viewName == "author"}
     <Author authorId={$currentView.metadata.authorId} {authors} {tags} />
+  {:else if $currentView.viewName == "word-find"}
+    <WordFind />
+  {:else if $currentView.viewName == "webcam"}
+    <Webcam />
   {:else}
     <p class="coming-soon">Coming soon!</p>
   {/if}

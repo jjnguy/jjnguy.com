@@ -11,6 +11,8 @@ namespace jjnguy.com.Controllers;
 public class HomeController(IHostEnvironment env) : Controller
 {
   [HttpGet("")]
+  [HttpGet("word-find")]
+  [HttpGet("webcam")]
   [HttpGet("posts")]
   [HttpGet("authors")]
   [HttpGet("authors/{authorId}")]
