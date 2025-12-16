@@ -1,6 +1,5 @@
 <script>
   import { onMount } from "svelte";
-  import Webcam from "webcam-easy";
 
   let video;
   let canvas;

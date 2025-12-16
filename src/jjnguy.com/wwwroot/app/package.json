@@ -13,7 +13,7 @@
     "@rollup/plugin-node-resolve": "^11.0.0",
     "@rollup/plugin-replace": "^2.4.2",
     "commonmark": "^0.29.3",
-    "less": "^4.1.1",
+    "less": "^3.13.1",
     "rollup": "^2.3.4",
     "rollup-plugin-css-only": "^3.1.0",
     "rollup-plugin-livereload": "^2.0.0",
@@ -23,7 +23,6 @@
     "svelte-preprocess": "^4.7.3"
   },
   "dependencies": {
-    "sirv-cli": "^1.0.0",
-    "webcam-easy": "^1.1.1"
+    "sirv-cli": "^1.0.0"
   }
 }
