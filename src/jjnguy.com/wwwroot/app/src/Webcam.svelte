@@ -27,10 +27,11 @@
 </script>
 
 <div class="container">
-  <video bind:this={video}></video>
+  <img src="img/shutter.svg" on:click={pic} alt="shutter" />
+  <video bind:this={video} />
   <canvas bind:this={canvas} width="600" height="400"></canvas>
 </div>
-<button on:click={pic}>snap</button>
+<p>Shuttrer from here https://thenounproject.com/icon/take-photo-4744642/</p>
 
 <!-- Add your markup here -->
 
@@ -39,6 +40,17 @@
     position: relative;
     width: 600px;
     height: 400px;
+
+    img {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      width: 50px;
+      height: 50px;
+      z-index: 20;
+      margin-left: auto;
+      margin-right: auto;
+    }
 
     canvas {
       position: absolute;
