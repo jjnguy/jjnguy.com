@@ -3,28 +3,58 @@
 
   let video;
   let canvas;
-  let webcam;
+
+  let hasPhoto = false;
 
   onMount(async () => {
-    webcam = new Webcam(video, "user", canvas);
-    await webcam.start();
+    let stream = await navigator.mediaDevices.getUserMedia({
+      video: {
+        width: 600,
+        height: 400,
+        facingMode: "environment",
+      },
+      audio: false,
+    });
+    video.srcObject = stream;
+    video.play();
   });
 
   function pic() {
-    const picture = webcam.snap();
-    canvas.getContext("2d").drawImage(picture, 0, 0);
+    var vRatio = (canvas.height / video.videoHeight) * video.videoWidth;
+    var hRatio = (canvas.width / video.videoWidth) * video.videoHeight;
+    canvas.getContext("2d").drawImage(video, 0, 0, vRatio, hRatio);
   }
 </script>
 
-<div>
+<div class="container">
   <video bind:this={video}></video>
-  <button on:click={pic}>snap</button>
-  <canvas bind:this={canvas}></canvas>
+  <canvas bind:this={canvas} width="600" height="400"></canvas>
 </div>
+<button on:click={pic}>snap</button>
 
 <!-- Add your markup here -->
 
-<style>
+<style lang="less">
+  .container {
+    position: relative;
+    width: 600px;
+    height: 400px;
+
+    canvas {
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 10;
+      opacity: 0.7;
+    }
+
+    video,
+    canvas {
+      width: 600px;
+      height: 400px;
+    }
+  }
+
   video {
     border: 1px solid black;
   }
