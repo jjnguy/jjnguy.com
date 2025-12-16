@@ -15,7 +15,7 @@ jobs:
       - name: NPM Install, and build
         working-directory: ./src/jjnguy.com/wwwroot/app
         run: |
-          npm install
+          npm install --force
           npm run build
       - name: Setup .NET Core
         uses: actions/setup-dotnet@v1
@@ -32,3 +32,4 @@ jobs:
           app-name: tegrity-content
           publish-profile: ${{ secrets.PUBLISH_PROFILE }}
           package: ./src/jjnguy.com/pub
+
